@@ -1,0 +1,15 @@
+<main>
+    <div class="cadastrar-tarefa">
+        <label for="tarefa">Digite o nome da tarefa</label>
+        <input type="text" id="tarefa" placeholder="digite aqui o nome da tarefa" [(ngModel)]="novaTarefa" />
+        <button id="tarefa-btn" (click)="adicionarTarefa()">Cadastrar tarefa</button>
+    </div>
+
+    <div class="resposta-cadastrar-tarefa">
+        <ul class="resposta-cadastro-tarefa">
+            <li *ngFor="let tarefa of listaTarefas" 
+            [ngClass]="{'concluida': tarefa.concluida}">
+            {{ tarefa.nome }} <button class="btn-excluir" (click)="excluirTarefa(tarefa.id)">Excluir</button> <button class="btn-concluir" (click)="concluirTarefa(tarefa.id)">Concluir</button> <button class="btn-editar" (click)="editarTarefa(tarefa.id)">Editar</button></li>
+        </ul>
+    </div>
+</main>
